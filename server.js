@@ -13,11 +13,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/styles', (req, res) => {
-    req.sendFile(path.join(__dirname, '/public/index.css'))
+    res.sendFile(path.join(__dirname, '/public/index.css'))
 })
 
 app.get('/js', (req, res) => {
-    req.sendFile(path.join(__dirname, '/public/index.js'))
+    res.sendFile(path.join(__dirname, '/public/index.js'))
 })
 
 app.get('/api/robots', (req, res) => {
