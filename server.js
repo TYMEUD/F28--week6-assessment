@@ -3,10 +3,22 @@ const path = require('path')
 const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
-const cors = require ('cors')
 
-app.use(cors())
+
+
 app.use(express.json())
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+})
+
+app.get('/styles', (req, res) => {
+    req.sendFile(path.join(__dirname, '/public/index.css'))
+})
+
+app.get('/js', (req, res) => {
+    req.sendFile(path.join(__dirname, '/public/index.js'))
+})
 
 app.get('/api/robots', (req, res) => {
     try {
@@ -17,9 +29,6 @@ app.get('/api/robots', (req, res) => {
     }
 })
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'))
-})
 
 app.get('/api/robots/five', (req, res) => {
     try {
