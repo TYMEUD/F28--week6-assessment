@@ -25,3 +25,4 @@ test('Choices display when Draw button is clicked', async () => {
     const choicesDiv = await driver.findElement(By.id('choices'))
     expect(choicesDiv).not.toBe('')
 })
+
